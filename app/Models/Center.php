@@ -9,7 +9,7 @@ class Center extends Model
 {
     use HasFactory;
 
-    protected $guerded = [];
+    protected $guarded = [];
 
     public function specialists()
     {

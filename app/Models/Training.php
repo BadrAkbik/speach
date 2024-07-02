@@ -9,7 +9,7 @@ class Training extends Model
 {
     use HasFactory;
 
-    protected $guerded = [];
+    protected $guarded = [];
 
     public function videos()
     {

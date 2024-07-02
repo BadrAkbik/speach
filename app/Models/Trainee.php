@@ -9,7 +9,7 @@ class Trainee extends Model
 {
     use HasFactory;
 
-    protected $guerded = [];
+    protected $guarded = [];
 
     public function ratings()
     {

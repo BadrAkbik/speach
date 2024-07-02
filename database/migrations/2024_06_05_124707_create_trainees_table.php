@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->enum('gender', ['male', 'female']);
             $table->date('date_of_birth');
-            $table->string('phone_num');
+            $table->string('phone_number');
             $table->string('training_result');
             $table->string('general_rating');
             $table->date('start_date');
