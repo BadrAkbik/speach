@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->foreignId('trainee_id')->constrained('trainees')->cascadeOnDelete();
-            $table->foreignId('spacialist_id')->nullable()->constrained('spacialists')->nullOnDelete();
+            $table->foreignId('specialist_id')->nullable()->constrained('specialists')->nullOnDelete();
             $table->float('degree', 2);
             $table->text('notes')->nullable();
             $table->timestamps();

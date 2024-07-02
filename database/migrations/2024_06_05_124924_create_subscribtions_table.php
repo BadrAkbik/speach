@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('subscribtions', function (Blueprint $table) {
-            $table->id();
+            $table->uuid();
             $table->primary(['package_id', 'user_id']);
             $table->foreignId('package_id')->constrained('packages')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();

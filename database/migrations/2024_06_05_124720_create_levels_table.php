@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('age_group');
             $table->enum('gender', ['male', 'female']);
             $table->float('success_rate', 2)->nullable();
-            $table->int('attemtps_count')->nullable();
+            $table->integer('attemtps_count')->nullable();
             $table->string('status');
             $table->timestamps();
         });
