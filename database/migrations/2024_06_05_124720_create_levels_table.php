@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('levels', function (Blueprint $table) {
             $table->id();
+            $table->string('name_ar')->unique()->nullable();
+            $table->string('name_en')->unique()->nullable();
+            $table->string('age_group');
+            $table->enum('gender', ['male', 'female']);
+            $table->float('success_rate', 2)->nullable();
+            $table->int('attemtps_count')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }

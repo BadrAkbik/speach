@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('tests', function (Blueprint $table) {
             $table->id();
+            $table->string('name_ar')->nullable();
+            $table->string('name_en')->nullable();
+            $table->foreignId('level_id')->constrained('levels')->cascadeOnDelete();
+            $table->string('audio');
+            $table->json('words');
             $table->timestamps();
         });
     }

@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             $table->string('phone_num')->unique();
-            $table->date('date_of_birth')->unique();
+            $table->date('date_of_birth');
             $table->enum('gender', ['male', 'female']);
             $table->string('image')->nullable();
             $table->foreignId('role_id')->constrained('roles')->cascadeOnDelete();
@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

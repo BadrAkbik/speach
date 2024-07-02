@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->id();
+            $table->string('type');
+            $table->morphs('notifiable');
+            $table->string('title')->nullable();
+            $table->text('content')->nullable();
+            $table->timestamp('read_at')->nullable();
             $table->timestamps();
         });
     }

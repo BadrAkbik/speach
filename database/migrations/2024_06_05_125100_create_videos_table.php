@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
+            $table->string('type');
+            $table->string('path')->nullable();
+            $table->morphs('watcher');
             $table->timestamps();
         });
     }

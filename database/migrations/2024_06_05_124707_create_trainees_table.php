@@ -13,7 +13,17 @@ return new class extends Migration
     {
         Schema::create('trainees', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->enum('gender', ['male', 'female']);
+            $table->date('date_of_birth');
+            $table->string('phone_num');
+            $table->string('training_result');
+            $table->string('general_rating');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->morphs('trainer');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

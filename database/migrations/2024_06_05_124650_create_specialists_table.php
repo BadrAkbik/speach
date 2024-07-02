@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('specialists', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('center_id')->nullable()->constrained('centers')->nullOnDelete();
+            $table->json('certifications')->nullable();
+            $table->string('license')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

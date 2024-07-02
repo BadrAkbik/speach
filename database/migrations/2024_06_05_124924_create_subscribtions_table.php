@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('subscribtions', function (Blueprint $table) {
             $table->id();
+            $table->primary(['package_id', 'user_id']);
+            $table->foreignId('package_id')->constrained('packages')->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->string('status');
+            $table->boolean('renew');
             $table->timestamps();
         });
     }
