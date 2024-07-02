@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Subscribtion extends Model
 {
     use HasFactory;
+
+    protected $guerded = [];
 }

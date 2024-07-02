@@ -8,4 +8,26 @@ use Illuminate\Database\Eloquent\Model;
 class Specialist extends Model
 {
     use HasFactory;
+
+    protected $guerded = [];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function center()
+    {
+        return $this->belongsTo(Center::class);
+    }
+
+    public function trainees()
+    {
+        return $this->morphMany(Trainee::class, 'trainer');
+    }
+
+    public function raitings()
+    {
+        return $this->hasMany(Rating::class, 'specialist_id');
+    }
 }

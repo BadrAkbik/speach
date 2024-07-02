@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Training extends Model
+class Trainee extends Model
 {
     use HasFactory;
 
     protected $guerded = [];
 
-    public function videos()
+    public function ratings()
     {
-        return $this->morphMany(Video::class, 'watcher');
+        return $this->hasMany(Rating::class, 'rating_id');
     }
 
-    public function level()
+    public function trainer()
     {
-        return $this->belongsTo(Level::class);
+        return $this->morphTo();
     }
 }

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class Package extends Model
 {
     use HasFactory;
 
@@ -13,11 +13,6 @@ class Role extends Model
 
     public function users()
     {
-        return $this->hasMany(User::class);
-    }
-    
-    public function permissions()
-    {
-        return $this->belongsToMany(Permission::class, 'permission_role')->withTimestamps();
+        return $this->belongsToMany(User::class, 'subscribtions');
     }
 }
