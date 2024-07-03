@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('status');
             $table->boolean('renew');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

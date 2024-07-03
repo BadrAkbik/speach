@@ -13,11 +13,11 @@ class MobileVerificationNotificationController extends Controller
     {
 
         if ($request->user()->hasVerifiedMobile()) {
-            return response()->json(['message' => 'ُEmail is already verified']);
+            return response()->json(['message' => 'ُMobile is already verified']);
         }
 
         $request->user()->sendEmailVerificationNotification();
 
-        return response()->json(['status' => 'Verification code has been sent to your email']);
+        return response()->json(['status' => 'Verification code has been sent to your Mobile']);
     }
 }

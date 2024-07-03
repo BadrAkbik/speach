@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class RoleController extends Controller
+class ReportController extends Controller
 {
-        /**
+            /**
      * Display a listing of the resource.
      */
     public function index()

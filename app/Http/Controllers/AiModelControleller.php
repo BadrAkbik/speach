@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\ApiResponse;
 use App\Services\AudioErrorsDetection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -29,11 +30,10 @@ class AiModelControleller extends Controller
             $audio = new AudioErrorsDetection();
             $transcribedText = json_decode($response)->text;
             $audio->splitFilterText($transcribedText);
-            return response()->json($audio->compareWords(['الشمس']));
+
+            return ApiResponse::sendResponse($audio->compareWords(['الشمس']),'', $response->status());
         } else {
-            return response()->json([
-                'message' => __('api.Something went wrong, please try again')
-            ], $response->status());
+            return ApiResponse::throw(__('api.Something went wrong, please try again'), $response->status());
         }
     }
 }
