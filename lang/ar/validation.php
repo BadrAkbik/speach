@@ -139,6 +139,7 @@ return [
     'uppercase'            => 'يجب أن يحتوي الحقل :attribute على حروف كبيرة.',
     'url'                  => 'صيغة رابط حقل :attribute غير صحيحة.',
     'uuid'                 => 'حقل :attribute يجب أن يكون بصيغة UUID سليمة.',
+    'extensions'           => 'يجب أن يكون ملفًا من نوع : :values.',
     'attributes'           => [
         'address'                  => 'العنوان',
         'age'                      => 'العمر',
@@ -211,5 +212,7 @@ return [
         'updated_at'               => 'تاريخ التحديث',
         'username'                 => 'اسم المُستخدم',
         'year'                     => 'السنة',
+        'name'                     => 'الاسم',
+        'phone_number'             => 'رقم الهاتف'
     ],
 ];

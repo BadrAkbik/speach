@@ -13,11 +13,12 @@ class Trainee extends Model
 
     public function ratings()
     {
-        return $this->hasMany(Rating::class, 'rating_id');
+        return $this->belongsToMany(Rating::class, 'ratings');
     }
 
     public function trainer()
     {
         return $this->morphTo();
     }
+    
 }

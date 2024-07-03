@@ -11,6 +11,19 @@ class Test extends Model
 
     protected $guarded = [];
 
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'words' => 'array',
+            'images' => 'array',
+        ];
+    }
+
     public function videos()
     {
         return $this->morphMany(Video::class, 'watcher');
@@ -20,9 +33,9 @@ class Test extends Model
     {
         return $this->belongsTo(Level::class);
     }
-    
+
     public function ratings()
     {
-        return $this->hasMany(Rating::class, 'test_id');
+        return $this->belongsToMany(Rating::class, 'ratings');
     }
 }

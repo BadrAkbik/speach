@@ -25,9 +25,4 @@ class Specialist extends Model
     {
         return $this->morphMany(Trainee::class, 'trainer');
     }
-
-    public function raitings()
-    {
-        return $this->hasMany(Rating::class, 'specialist_id');
-    }
 }

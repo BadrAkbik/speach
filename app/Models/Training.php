@@ -11,6 +11,19 @@ class Training extends Model
 
     protected $guarded = [];
 
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'words' => 'array',
+            'images' => 'array',
+        ];
+    }
+
     public function videos()
     {
         return $this->morphMany(Video::class, 'watcher');

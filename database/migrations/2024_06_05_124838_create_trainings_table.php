@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('name_ar')->nullable();
             $table->string('name_en')->nullable();
             $table->foreignId('level_id')->nullable()->constrained('levels')->nullOnDelete();
-            $table->string('audio');
-            $table->json('words');
+            $table->string('audio')->nullable();
+            $table->json('images')->nullable();
+            $table->json('words')->nullable();
             $table->timestamps();
         });
     }
