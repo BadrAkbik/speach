@@ -37,6 +37,7 @@ return [
     'password has been successfully reseted' => 'تمت استعادة كلمة السر الخاصة بك بنجاح',
     'Your mobile number is not verified.' => 'رقم هاتفك غير مؤكد',
     'Your phone number has been verified successfully' => 'تم تأكيد رقم هاتفك بنجاح',
+    'not_registered' => 'غير مسجل',
     
     
 

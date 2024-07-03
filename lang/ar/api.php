@@ -2,7 +2,7 @@
 return [
     'login successfully, but code is needed' => 'تم تسجيل الدخول بنجاح، ولكن هناك حاجة إلى الرمز',
     'login successfully' => 'تم التسجيل بنجاح',
-    'You have registred to our app successfully please verify your phone number to continue' => 'تم التسجيل في التطبيق بنجاح، الرجاء تأكيد رثم الهاتف للاستمرار ',
+    'You have registred to our app successfully please use your phone number to login' => 'تم التسجيل في التطبيق بنجاح، الرجاء استخدام رقم الهاتف لتسجيل الدخول ',
     'auth failed' => 'فشلت المصادقه',
     'Logged out' => 'تسجيل الخروج',
     'Delete user successfully' => 'تم حذف المستخدم بنجاح',

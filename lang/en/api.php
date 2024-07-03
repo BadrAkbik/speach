@@ -1,7 +1,7 @@
 <?php
 return [
     'login successfully, but code is needed' => 'login successfully, but code is needed',
-    'You have registred to our app successfully please verify your phone number to continue' => 'You have registred to our app successfully please verify your phone number to continue',
+    'You have registred to our app successfully please use your phone number to login' => 'You have registred to our app successfully please use your phone number to login',
     'login successfully' => 'login successfully',
     'auth failed' => 'auth failed',
     'Logged out' => 'Logged out',

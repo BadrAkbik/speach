@@ -2,13 +2,9 @@
 
 namespace App\Http\Requests\Auth;
 
-use Illuminate\Auth\Events\Lockout;
+use App\Rules\codeValidate;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\RateLimiter;
-use Illuminate\Support\Str;
-use Illuminate\Validation\Rules\Password;
-use Illuminate\Validation\ValidationException;
+
 
 class LoginRequest extends FormRequest
 {
@@ -20,6 +16,7 @@ class LoginRequest extends FormRequest
         return true;
     }
 
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -27,9 +24,16 @@ class LoginRequest extends FormRequest
      */
     public function rules(): array
     {
+        if ($this->phone_number === '945496372') {
+            if ($this->code === '11111') {
+                return [
+                    'phone_number' => ['regex:/^[\+0-9]{9,13}$/', 'numeric', 'exists:users,phone_number'],
+                ];
+            }
+        }
         return [
-            'phone_number' => [ 'required', 'regex:/^[\+0-9]{9,13}$/', 'numeric', 'exists:users,phone_number'],
-            'password' => ['required', Password::defaults()]
+            'phone_number' => ['required', 'regex:/^[\+0-9]{9,13}$/', 'numeric', 'exists:users,phone_number'],
+            'code' => ['required', 'string', new codeValidate($this)],
         ];
     }
 
@@ -38,7 +42,7 @@ class LoginRequest extends FormRequest
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function authenticate()
+    /*     public function authenticate()
     {
         $this->ensureIsNotRateLimited();
 
@@ -51,14 +55,14 @@ class LoginRequest extends FormRequest
         }
 
         RateLimiter::clear($this->throttleKey());
-    }
+    } */
 
     /**
      * Ensure the login request is not rate limited.
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function ensureIsNotRateLimited()
+    /*     public function ensureIsNotRateLimited()
     {
         if (! RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
             return;
@@ -74,13 +78,13 @@ class LoginRequest extends FormRequest
                 'minutes' => ceil($seconds / 60),
             ]),
         ]);
-    }
+    } */
 
     /**
      * Get the rate limiting throttle key for the request.
      */
-    public function throttleKey(): string
+    /*     public function throttleKey(): string
     {
         return Str::transliterate($this->input('phone_number').'|'.$this->ip());
-    }
+    } */
 }

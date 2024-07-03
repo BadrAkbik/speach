@@ -28,7 +28,7 @@ class RegisteredUserController extends Controller
             event(new Registered($user));
 
             return response()->json([
-                'message' => __('api.You have registred to our app successfully please verify your phone number to continue')
+                'message' => __('api.You have registred to our app successfully please use your phone number to login')
             ], 200);
         });
     }

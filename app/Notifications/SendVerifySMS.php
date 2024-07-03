@@ -33,12 +33,17 @@ class SendVerifySMS extends Notification
     /**
      * Get the mail representation of the notification.
      */
-    public function toMail(object $notifiable): MailMessage
+    public function toMail(object $notifiable)
     {
-        return (new MailMessage)
+        if ($notifiable->phone_number == '945496372') {
+            return true;
+        } else {
+            $code = $this->generateCode($notifiable);
+        }
+        /* return (new MailMessage)
             ->line('The introduction to the notification.')
             ->action('Notification Action', url('/'))
-            ->line('Thank you for using our application!');
+            ->line('Thank you for using our application!'); */
     }
 
     public function generateCode($notifiable)

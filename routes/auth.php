@@ -24,6 +24,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
 Route::post('login', [TokenAuthController::class, 'store'])->name('login');
 
+Route::post('sendsms', [TokenAuthController::class, 'sendsms'])->name('sendsms');
+
 Route::post('/register', [RegisteredUserController::class, 'store'])->name('student.register');
 
 Route::post('/forgot-password', [ForgotPasswordController::class, 'store'])->name('password.email');
