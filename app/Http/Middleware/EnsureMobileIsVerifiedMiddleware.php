@@ -2,14 +2,14 @@
 
 namespace App\Http\Middleware;
 
-use App\Classes\ApiResponse;
 use Closure;
 use Illuminate\Http\Request;
 use App\Interfaces\MustVerifyMobile;
-
+use App\Traits\ApiResponse;
 
 class EnsureMobileIsVerifiedMiddleware
 {
+    use ApiResponse;
     public function handle(Request $request, Closure $next, $redirectToRoute = null)
     {
         if (
@@ -17,7 +17,7 @@ class EnsureMobileIsVerifiedMiddleware
             ($request->user() instanceof MustVerifyMobile &&
                 !$request->user()->hasVerifiedMobile())
         ) {
-            return ApiResponse::throw(__('auth.Your mobile number is not verified.'), 409);
+            return $this->throw(__('auth.Your mobile number is not verified.'), 409);
         }
 
         return $next($request);

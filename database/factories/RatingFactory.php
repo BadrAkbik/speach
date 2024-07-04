@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Trainee;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,10 @@ class RatingFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'trainee_id' => Trainee::all()->random(1)->first()->id,
+            'degree' => fake()->numberBetween(0,10),
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }

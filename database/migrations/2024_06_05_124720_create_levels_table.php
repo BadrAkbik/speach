@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name_ar')->unique()->nullable();
             $table->string('name_en')->unique()->nullable();
             $table->foreignId('age_group_id')->nullable()->constrained('age_groups')->nullOnDelete();
-            $table->enum('gender', ['male', 'female']);
+            $table->enum('gender', ['male', 'female'])->nullable();
             $table->float('success_rate', 2)->nullable();
             $table->integer('attemtps_count')->nullable();
             $table->string('status');

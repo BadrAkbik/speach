@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('trainings', function (Blueprint $table) {
             $table->id();
-            $table->string('name_ar')->nullable();
-            $table->string('name_en')->nullable();
+            $table->string('name_ar')->unique()->nullable();
+            $table->string('name_en')->unique()->nullable();
             $table->foreignId('level_id')->nullable()->constrained('levels')->nullOnDelete();
             $table->string('audio')->nullable();
             $table->json('images')->nullable();

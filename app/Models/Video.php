@@ -11,7 +11,29 @@ class Video extends Model
 
     protected $guarded = [];
 
-    public function watcher()
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($trainig) {
+            if ($trainig->videos()) {
+                //delete
+            }
+        });
+
+        static::updating(function ($file) {
+            // Delete the file
+            if ($file->isdirty()) {
+                $originalFile = $file->getOriginal('path');
+                if ($originalFile) {
+                    //delete video
+                }
+            }
+        });
+    }
+    
+    public function related()
     {
         return $this->morphTo();
     }

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('name_en')->nullable();
             $table->boolean('active')->default(true);
             $table->integer('uses_limit');
-            $table->integer('uses_count');
+            $table->integer('uses_count')->default(0);
             $table->enum('type', ['amount', 'percentage']);
             $table->float('value', 2);
             $table->timestamps();

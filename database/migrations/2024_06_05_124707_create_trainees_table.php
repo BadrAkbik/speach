@@ -16,11 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->enum('gender', ['male', 'female']);
             $table->date('date_of_birth');
-            $table->string('phone_number');
-            $table->string('training_result');
-            $table->string('general_rating');
+            $table->string('training_result')->nullable();
+            $table->string('general_rating')->nullable();
             $table->date('start_date');
-            $table->date('end_date');
+            $table->date('end_date')->nullable();
             $table->morphs('trainer');
             $table->timestamps();
             $table->softDeletes();

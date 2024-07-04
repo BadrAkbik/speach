@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AiModelControleller;
+use App\Http\Controllers\Api\AiModelControleller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

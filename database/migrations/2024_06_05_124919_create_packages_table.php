@@ -18,6 +18,7 @@ return new class extends Migration
             $table->float('price');
             $table->integer('patiant_count');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

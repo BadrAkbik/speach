@@ -24,9 +24,20 @@ class Test extends Model
         ];
     }
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($trainig) {
+            if ($trainig->videos()) {
+                //delete
+            }
+        });
+    }
+
     public function videos()
     {
-        return $this->morphMany(Video::class, 'watcher');
+        return $this->morphMany(Video::class, 'related');
     }
 
     public function level()
