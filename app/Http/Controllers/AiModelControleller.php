@@ -31,7 +31,7 @@ class AiModelControleller extends Controller
             $transcribedText = json_decode($response)->text;
             $audio->splitFilterText($transcribedText);
 
-            return ApiResponse::sendResponse($audio->compareWords(['الشمس']),'', $response->status());
+            return ApiResponse::sendResponse($audio->compareWords(['الشمس']), '', $response->status());
         } else {
             return ApiResponse::throw(__('api.Something went wrong, please try again'), $response->status());
         }

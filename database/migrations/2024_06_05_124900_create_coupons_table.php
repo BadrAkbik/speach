@@ -23,7 +23,6 @@ return new class extends Migration
             $table->integer('uses_count');
             $table->enum('type', ['amount', 'percentage']);
             $table->float('value', 2);
-            
             $table->timestamps();
         });
     }

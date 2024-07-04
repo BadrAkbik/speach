@@ -7,13 +7,14 @@ namespace App\Models;
 use App\Interfaces\MustVerifyMobile as IMustVerifyMobile;
 use App\Traits\MustVerifyMobile;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements IMustVerifyMobile
 {
-    use HasFactory, Notifiable, HasApiTokens, MustVerifyMobile;
+    use HasFactory, Notifiable, HasApiTokens, MustVerifyMobile, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -52,7 +53,12 @@ class User extends Authenticatable implements IMustVerifyMobile
 
     public function packages()
     {
-        return $this->belongsToMany(Package::class, 'subscribtions');
+        return $this->belongsToMany(Package::class, 'subscribtions')->withPivot('start_date', 'end_date', 'status', 'renew')->withTimestamps();
+    }
+
+    public function subscribtions()
+    {
+        return $this->hasMany(Subscribtion::class, 'user_id');
     }
 
     public function trainees()

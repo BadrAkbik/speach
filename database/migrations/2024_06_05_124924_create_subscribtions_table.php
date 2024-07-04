@@ -12,14 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('subscribtions', function (Blueprint $table) {
-            $table->uuid();
             $table->primary(['package_id', 'user_id']);
             $table->foreignId('package_id')->constrained('packages')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->date('start_date');
             $table->date('end_date');
-            $table->string('status');
-            $table->boolean('renew');
+            $table->string('status')->nullable();
+            $table->boolean('renew')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });
